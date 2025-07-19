@@ -1,6 +1,6 @@
 # আন্দোলনবাজ.কম - A Satirical Protest Service Website
 
-![Project Preview](https://via.placeholder.com/800x400?text=AndolonBaj.com+Preview)
+![Preview](images/preview.png)
 
 A humorous and satirical website offering "professional protest services" in Bangladesh. This mobile-responsive site is a parody showcasing fictional protest packages and services.
 
