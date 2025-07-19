@@ -1,0 +1,1366 @@
+<!doctype html>
+<html lang="bn">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>আন্দোলনবাজ.কম - Mobile Responsive</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Hind Siliguri", sans-serif;
+                background: linear-gradient(135deg, #f9f9f9 0%, #f0f8ff 100%);
+                color: #333;
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            /* Mobile First Design */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+
+            /* Header Styles - Mobile */
+            header {
+                background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+                padding: 12px 0;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo h1 {
+                color: white;
+                font-size: 20px;
+                font-weight: 700;
+                margin-left: 8px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+
+            .logo-icon {
+                background-color: #f1c40f;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                color: #c0392b;
+                box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+            }
+
+            .menu-toggle {
+                display: block;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #c0392b;
+                transition: all 0.4s ease;
+                z-index: 1000;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                list-style: none;
+                padding: 70px 20px 20px;
+            }
+
+            nav ul li {
+                margin-bottom: 15px;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+                transition: all 0.3s;
+                padding: 10px;
+                border-radius: 8px;
+                display: block;
+            }
+
+            nav ul li a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .close-menu {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            /* Hero Section */
+            .hero {
+                background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23e74c3c" opacity="0.1"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="%23c0392b" stroke-width="2" opacity="0.1"/></svg>');
+                background-size: 150px;
+                padding: 60px 0 40px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    rgba(255, 255, 255, 0.9),
+                    rgba(255, 255, 255, 0.9)
+                );
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .hero h2 {
+                font-size: 26px;
+                color: #c0392b;
+                margin-bottom: 15px;
+                line-height: 1.3;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .hero p {
+                font-size: 16px;
+                color: #333;
+                margin-bottom: 25px;
+            }
+
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                border-radius: 50px;
+                font-size: 16px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.3s;
+                cursor: pointer;
+                border: none;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .btn-primary {
+                background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+                color: white;
+            }
+
+            .btn-secondary {
+                background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+                color: white;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            /* Section Styles */
+            section {
+                padding: 50px 0;
+            }
+
+            .section-header {
+                text-align: center;
+                margin-bottom: 35px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+                color: #c0392b;
+                position: relative;
+                display: inline-block;
+                margin-bottom: 12px;
+            }
+
+            .section-header h2:after {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, #e74c3c 0%, #f1c40f 100%);
+                border-radius: 2px;
+            }
+
+            .section-header p {
+                font-size: 16px;
+                color: #555;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            /* Services Section */
+            .services-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s;
+            }
+
+            .service-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .service-icon {
+                height: 120px;
+                background: linear-gradient(135deg, #e74c3c 0%, #f1c40f 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 40px;
+                color: white;
+            }
+
+            .service-content {
+                padding: 20px;
+            }
+
+            .service-content h3 {
+                font-size: 20px;
+                margin-bottom: 12px;
+                color: #c0392b;
+            }
+
+            .service-content p {
+                color: #555;
+                font-size: 15px;
+            }
+
+            /* Protesters Section */
+            .protesters {
+                background: linear-gradient(135deg, #f0f8ff 0%, #fff5e6 100%);
+            }
+
+            .protesters-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .protester-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+                text-align: center;
+                transition: all 0.3s;
+            }
+
+            .protester-card:hover {
+                transform: scale(1.03);
+            }
+
+            .protester-avatar {
+                height: 150px;
+                background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 60px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            .protester-info {
+                padding: 15px;
+            }
+
+            .protester-info h3 {
+                font-size: 20px;
+                color: #2980b9;
+                margin-bottom: 8px;
+            }
+
+            .protester-info p {
+                color: #555;
+                font-size: 15px;
+            }
+
+            /* Packages Section */
+            .packages-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .package-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+                position: relative;
+                transition: all 0.3s;
+            }
+
+            .package-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .package-header {
+                padding: 20px;
+                text-align: center;
+                color: white;
+            }
+
+            .package-basic .package-header {
+                background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            }
+
+            .package-premium .package-header {
+                background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            }
+
+            .package-vip .package-header {
+                background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+            }
+
+            .package-header h3 {
+                font-size: 22px;
+                margin-bottom: 8px;
+            }
+
+            .package-header .price {
+                font-size: 36px;
+                font-weight: 700;
+            }
+
+            .package-features {
+                padding: 20px;
+            }
+
+            .package-features ul {
+                list-style: none;
+            }
+
+            .package-features ul li {
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+                display: flex;
+                align-items: center;
+                font-size: 15px;
+            }
+
+            .package-features ul li:last-child {
+                border-bottom: none;
+            }
+
+            .package-features ul li i {
+                margin-right: 8px;
+                color: #27ae60;
+                font-size: 16px;
+            }
+
+            .package-button {
+                text-align: center;
+                padding: 0 20px 20px;
+            }
+
+            /* Booking Section */
+            .booking {
+                background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+            }
+
+            .booking-container {
+                max-width: 700px;
+                margin: 0 auto;
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .booking-header {
+                background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+                padding: 18px;
+                text-align: center;
+                color: white;
+            }
+
+            .booking-header h3 {
+                font-size: 22px;
+            }
+
+            .booking-form {
+                padding: 25px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 6px;
+                font-weight: 600;
+                color: #555;
+                font-size: 15px;
+            }
+
+            .form-control {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                font-size: 15px;
+                font-family: inherit;
+                transition: all 0.3s;
+            }
+
+            .form-control:focus {
+                border-color: #3498db;
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            }
+
+            .submit-btn {
+                background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+                color: white;
+                width: 100%;
+                padding: 14px;
+                font-size: 17px;
+                font-weight: 600;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s;
+                margin-top: 10px;
+            }
+
+            .submit-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+            }
+
+            .fun-message {
+                text-align: center;
+                margin-top: 15px;
+                font-style: italic;
+                color: #27ae60;
+                font-weight: 600;
+                font-size: 15px;
+            }
+
+            /* Footer */
+            footer {
+                background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
+                color: white;
+                padding: 50px 0 25px;
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-bottom: 35px;
+            }
+
+            .footer-section h3 {
+                font-size: 20px;
+                margin-bottom: 15px;
+                position: relative;
+                padding-bottom: 8px;
+            }
+
+            .footer-section h3:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 40px;
+                height: 3px;
+                background: #e74c3c;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 12px;
+                margin-top: 15px;
+            }
+
+            .social-links a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                border-radius: 50%;
+                font-size: 18px;
+                transition: all 0.3s;
+            }
+
+            .social-links a:hover {
+                background: #e74c3c;
+                transform: translateY(-5px);
+            }
+
+            .footer-bottom {
+                text-align: center;
+                padding-top: 25px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 14px;
+            }
+
+            .disclaimer {
+                background: #e74c3c;
+                padding: 15px;
+                text-align: center;
+                color: white;
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+            /* Slogan Generator */
+            .slogan-generator {
+                text-align: center;
+                padding: 30px 20px;
+                background: linear-gradient(135deg, #fff9e6 0%, #fff0f0 100%);
+                border-radius: 12px;
+                margin: 30px 0;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            }
+
+            .slogan-display {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #c0392b;
+                margin: 25px auto;
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+                border: 2px dashed #e74c3c;
+            }
+
+            .slogan-btn {
+                background: linear-gradient(90deg, #f1c40f 0%, #f39c12 100%);
+                color: white;
+                padding: 12px 30px;
+                font-size: 18px;
+                font-weight: 700;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .slogan-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            /* Featured News */
+            .featured-news {
+                background: linear-gradient(135deg, #e6f7ff 0%, #f0f8ff 100%);
+                padding: 30px 20px;
+                border-radius: 12px;
+                margin: 30px 0;
+            }
+
+            .news-card {
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s;
+                margin-bottom: 20px;
+            }
+
+            .news-card:last-child {
+                margin-bottom: 0;
+            }
+
+            .news-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .news-image {
+                height: 150px;
+                background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 40px;
+            }
+
+            .news-content {
+                padding: 18px;
+            }
+
+            .news-content h3 {
+                color: #8e44ad;
+                margin-bottom: 8px;
+                font-size: 18px;
+            }
+
+            .news-content p {
+                color: #555;
+                font-size: 14px;
+            }
+
+            /* Tablet Styles */
+            @media (min-width: 576px) {
+                .services-grid,
+                .protesters-grid,
+                .packages-grid,
+                .footer-content {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .hero h2 {
+                    font-size: 30px;
+                }
+
+                .btn-container {
+                    flex-direction: row;
+                    justify-content: center;
+                }
+
+                .logo h1 {
+                    font-size: 22px;
+                }
+            }
+
+            /* Desktop Styles */
+            @media (min-width: 992px) {
+                .services-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .protesters-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .packages-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .footer-content {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .menu-toggle {
+                    display: none;
+                }
+
+                nav {
+                    position: static;
+                    width: auto;
+                    height: auto;
+                    background: transparent;
+                    transition: none;
+                    box-shadow: none;
+                }
+
+                nav ul {
+                    display: flex;
+                    padding: 0;
+                    flex-wrap: wrap;
+                }
+
+                nav ul li {
+                    margin-bottom: 0;
+                    margin-left: 15px;
+                }
+
+                .close-menu {
+                    display: none;
+                }
+
+                .hero h2 {
+                    font-size: 36px;
+                }
+
+                .hero p {
+                    font-size: 18px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Disclaimer Banner -->
+        <div class="disclaimer">
+            ⚠️ এই ওয়েবসাইটটি সম্পূর্ণ কৌতুকমূলক ও ব্যঙ্গাত্মক। বাস্তব জীবনে কোন
+            অপপ্রয়োগকে উৎসাহিত করা হয় না।
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-fist-raised"></i>
+                        </div>
+                        <h1>আন্দোলনবাজ.কম</h1>
+                    </div>
+
+                    <div class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+
+                    <nav id="mainNav">
+                        <div class="close-menu" id="closeMenu">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#home"
+                                    ><i class="fas fa-home"></i> হোম</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#services"
+                                    ><i class="fas fa-hands-helping"></i>
+                                    সেবাসমূহ</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#protesters"
+                                    ><i class="fas fa-users"></i> আমাদের লোক</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#packages"
+                                    ><i class="fas fa-tags"></i> প্যাকেজ</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#booking"
+                                    ><i class="fas fa-calendar-check"></i>
+                                    বুকিং</a
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>
+                        আপনি কি আন্দোলন করবেন? কিন্তু লোক নেই? চিন্তা নাই, আমরা
+                        আছি!
+                    </h2>
+                    <p>
+                        পরীক্ষা পিছাতে চান? চাকরি চান? ঘুষ ছাড়তে চান? রেজাল্ট
+                        পাল্টাতে চান? আমরা লোক ভাড়া দেই!
+                    </p>
+
+                    <div class="btn-container">
+                        <a href="#booking" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> লোক ভাড়া নিতে চাই
+                        </a>
+                        <a href="#packages" class="btn btn-secondary">
+                            <i class="fas fa-bullhorn"></i> আন্দোলন জমাতে চাই
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slogan Generator -->
+        <section class="container">
+            <div class="slogan-generator">
+                <div class="section-header">
+                    <h2>স্লোগান জেনারেটর</h2>
+                    <p>
+                        এক ক্লিকেই পেয়ে যান আপনার আন্দোলনের জন্য পারফেক্ট
+                        স্লোগান!
+                    </p>
+                </div>
+
+                <div class="slogan-display" id="sloganDisplay">
+                    "পরীক্ষা পিছাতে হবে, প্রয়োজনে রাস্তায় শুয়ে পড়বো!"
+                </div>
+
+                <button class="slogan-btn" id="generateSlogan">
+                    <i class="fas fa-bullhorn"></i> স্লোগান দাও!
+                </button>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>আমাদের সেবা</h2>
+                    <p>আমরা যেসব আন্দোলনের জন্য লোক ভাড়া দেই</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>পরীক্ষা পেছানো আন্দোলন</h3>
+                            <p>
+                                পরীক্ষা পেছানোর জন্য আমাদের বিশেষজ্ঞ
+                                আন্দোলনকারীরা তৈরি। যেকোনো পরীক্ষা পিছিয়ে দিতে
+                                পারার গ্যারান্টি!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>রেজাল্ট চ্যালেঞ্জ আন্দোলন</h3>
+                            <p>
+                                খারাপ রেজাল্টে মন খারাপ? আমাদের লোকেরা রেজাল্ট
+                                পাল্টানোর জন্য প্রেসক্লাবে হাজির!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>চাকরির দাবিতে মানববন্ধন</h3>
+                            <p>
+                                চাকরি চাই? আমাদের লোকেরা আপনার পক্ষে মানববন্ধন
+                                করবে, মিছিল করবে - চাকরি না পাওয়া পর্যন্ত!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protesters Section -->
+        <section class="protesters" id="protesters">
+            <div class="container">
+                <div class="section-header">
+                    <h2>আমাদের বাহাদুর লোকেরা</h2>
+                    <p>
+                        আমাদের বিশেষ দক্ষতাসম্পন্ন আন্দোলনবাজরা সবসময় প্রস্তুত
+                        আপনার দাবি আদায়ে
+                    </p>
+                </div>
+
+                <div class="protesters-grid">
+                    <div class="protester-card">
+                        <div class="protester-avatar">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="protester-info">
+                            <h3>রবি ভাই</h3>
+                            <p>
+                                মিছিলে স্লোগান দেয় একটানা ৩ ঘণ্টা। গলার জোর দেখে
+                                শত্রুপক্ষ পালায়!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="protester-card">
+                        <div class="protester-avatar">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <div class="protester-info">
+                            <h3>ঝন্টু ভাই</h3>
+                            <p>
+                                মিডিয়ায় ক্যামেরার সামনে দাঁড়াতে ভালোবাসে।
+                                চ্যানেলের লোক আসার আগেই ক্যামেরা সেট করে রাখে!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="protester-card">
+                        <div class="protester-avatar">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="protester-info">
+                            <h3>মালেকা খালা</h3>
+                            <p>
+                                চোখে পানির ফোয়ারা দিতে ওস্তাদ। কান্না দেখে পাথরও
+                                গলে যায়!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="protester-card">
+                        <div class="protester-avatar">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <div class="protester-info">
+                            <h3>বাবুল</h3>
+                            <p>
+                                পুলিশের সাথে নাটক করে পড়ে যায় নিজে নিজেই। অস্কার
+                                জেতার মতো পারফরম্যান্স!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section id="packages">
+            <div class="container">
+                <div class="section-header">
+                    <h2>আমাদের প্যাকেজ সমূহ</h2>
+                    <p>আপনার বাজেট ও চাহিদা অনুযায়ী প্যাকেজ সিলেক্ট করুন</p>
+                </div>
+
+                <div class="packages-grid">
+                    <div class="package-card package-basic">
+                        <div class="package-header">
+                            <h3>সাধারণ</h3>
+                            <div class="price">৫০০ টাকা</div>
+                            <p>১ ঘণ্টার জন্য</p>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> ২০ জন লোক</li>
+                                <li>
+                                    <i class="fas fa-check"></i> ১ জন স্লোগান
+                                    দাতা
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i> মিডিয়া কাভারেজ
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i> বিশেষ নাটকীয়তা
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i> ফেসবুক লাইভ
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="package-button">
+                            <a href="#booking" class="btn btn-primary"
+                                >বুক করুন</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="package-card package-premium">
+                        <div class="package-header">
+                            <h3>প্রিমিয়াম</h3>
+                            <div class="price">১৫০০ টাকা</div>
+                            <p>২ ঘণ্টার জন্য</p>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> ৫০ জন লোক</li>
+                                <li>
+                                    <i class="fas fa-check"></i> ২ জন স্লোগান
+                                    দাতা
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i> মিডিয়া কাভারেজ
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i> বিশেষ নাটকীয়তা
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i> ফেসবুক লাইভ
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="package-button">
+                            <a href="#booking" class="btn btn-primary"
+                                >বুক করুন</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class="package-card package-vip">
+                        <div class="package-header">
+                            <h3>ভিআইপি</h3>
+                            <div class="price">৩০০০ টাকা</div>
+                            <p>৪ ঘণ্টার জন্য</p>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> ১০০ জন লোক</li>
+                                <li>
+                                    <i class="fas fa-check"></i> ৫ জন স্লোগান
+                                    দাতা
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i> মিডিয়া কাভারেজ
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i> বিশেষ নাটকীয়তা
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i> ফেসবুক লাইভ
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="package-button">
+                            <a href="#booking" class="btn btn-primary"
+                                >বুক করুন</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured News -->
+        <section class="container">
+            <div class="featured-news">
+                <div class="section-header">
+                    <h2>আন্দোলনবাজ এক্সক্লুসিভ!</h2>
+                    <p>আমাদের আন্দোলনবাজদের সাফল্যের গল্প</p>
+                </div>
+
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="news-content">
+                            <h3>মালেকা খালার কান্নায় সচিবালয় কাঁপলো!</h3>
+                            <p>
+                                গতকাল সচিবালয়ের সামনে মালেকা খালার কান্নায়
+                                কর্তাব্যক্তিরা হতভম্ব। তার কান্নার তীব্রতায়
+                                ভবনের কাঁচ পর্যন্ত ফেটে গেছে বলে জানা গেছে।
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-image">
+                            <i class="fas fa-clone"></i>
+                        </div>
+                        <div class="news-content">
+                            <h3>একই দিনে তিন জায়গায় আন্দোলন!</h3>
+                            <p>
+                                বাবুল ভাইয়ের ক্লোন রহস্য! একই সময়ে তিনটি ভিন্ন
+                                স্থানে বাবুল ভাইয়ের নাটকীয় পড়ে যাওয়ার ভিডিও
+                                ভাইরাল হয়েছে সোশ্যাল মিডিয়ায়।
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-image">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="news-content">
+                            <h3>ঝন্টু ভাই CNN-এর ক্যামেরাতেও ঢুকে গেলেন!</h3>
+                            <p>
+                                আন্তর্জাতিক সংবাদ মাধ্যম CNN-এর সরাসরি
+                                সম্প্রচারের সময় ঝন্টু ভাই হঠাৎ করে ক্যামেরার
+                                সামনে এসে দাঁড়িয়ে স্লোগান দিতে শুরু করেন।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="booking" id="booking">
+            <div class="container">
+                <div class="section-header">
+                    <h2>আগাম বুকিং করুন</h2>
+                    <p>অতি দ্রুত আপনার আন্দোলনের জন্য লোক বুক করুন</p>
+                </div>
+
+                <div class="booking-container">
+                    <div class="booking-header">
+                        <h3>আন্দোলনের লোক বুকিং ফর্ম</h3>
+                    </div>
+
+                    <div class="booking-form">
+                        <form id="protestBookingForm">
+                            <div class="form-group">
+                                <label for="name">আপনার নাম</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    class="form-control"
+                                    placeholder="আপনার পূর্ণ নাম লিখুন"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reason">আন্দোলনের কারণ</label>
+                                <input
+                                    type="text"
+                                    id="reason"
+                                    class="form-control"
+                                    placeholder="আন্দোলনের কারণ লিখুন"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="people">কতজন লোক লাগবে?</label>
+                                <select
+                                    id="people"
+                                    class="form-control"
+                                    required
+                                >
+                                    <option value="">সিলেক্ট করুন</option>
+                                    <option value="20">
+                                        ২০ জন (সাধারণ প্যাকেজ)
+                                    </option>
+                                    <option value="50">
+                                        ৫০ জন (প্রিমিয়াম প্যাকেজ)
+                                    </option>
+                                    <option value="100">
+                                        ১০০ জন (ভিআইপি প্যাকেজ)
+                                    </option>
+                                    <option value="custom">
+                                        কাস্টম (আমাদের সাথে যোগাযোগ করুন)
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date">লোক চাই কখন?</label>
+                                <input
+                                    type="date"
+                                    id="date"
+                                    class="form-control"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">লোক চাই কোথায়?</label>
+                                <input
+                                    type="text"
+                                    id="location"
+                                    class="form-control"
+                                    placeholder="আন্দোলনের স্থান লিখুন"
+                                    required
+                                />
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> সাবমিট করুন
+                            </button>
+
+                            <div class="fun-message">
+                                আপনার আন্দোলন সফল হোক! ইনশাআল্লাহ!
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+    আন্দোলনবাজ.কম তৈরি করেছেন:
+    নাম: ঈমাম হাসান
+    তারিখ: জুলাই ২০২৫
+    Version: 1.0
+-->
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>আন্দোলনবাজ.কম</h3>
+                        <p>
+                            তোমার দাবী, আমাদের লোক! সব ধরনের আন্দোলনের জন্য
+                            বিশেষজ্ঞ লোক সরবরাহে আমরা সবার সেরা।
+                        </p>
+
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>যোগাযোগ</h3>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> আন্দোলন সরণি,
+                            প্রটেস্ট প্লাজার, ঢাকা
+                        </p>
+                        <p><i class="fas fa-phone"></i> +880 17XX-XXXXXX</p>
+                        <p>
+                            <i class="fas fa-envelope"></i> info@andolonbaj.com
+                        </p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>গুরুত্বপূর্ণ লিংক</h3>
+                        <p><a href="#">আমাদের সম্পর্কে</a></p>
+                        <p><a href="#">গোপনীয়তা নীতি</a></p>
+                        <p><a href="#">শর্তাবলী</a></p>
+                        <p><a href="#">ক্যারিয়ার</a></p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>
+                        &copy; ২০২৫ আন্দোলনবাজ.কম - সমস্ত অধিকার সংরক্ষিত। একটি
+                        রসাত্মক ও ব্যঙ্গাত্মক ওয়েবসাইটটি তৈরি করেছেন: নাম: ইমাম
+                        হাসান তারিখ: জুলাই ২০২৫ Version: 1.0
+                    </p>
+                    <p>#আন্দোলনবাজ #লোকদেখানোসত্যি #মিছিলপাশে</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile Navigation
+            const menuToggle = document.getElementById("menuToggle");
+            const closeMenu = document.getElementById("closeMenu");
+            const mainNav = document.getElementById("mainNav");
+
+            menuToggle.addEventListener("click", () => {
+                mainNav.classList.add("active");
+            });
+
+            closeMenu.addEventListener("click", () => {
+                mainNav.classList.remove("active");
+            });
+
+            // Close menu when clicking on links
+            const navLinks = document.querySelectorAll("nav ul li a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mainNav.classList.remove("active");
+                });
+            });
+
+            // Slogan Generator
+            const slogans = [
+                "পরীক্ষা পিছাতে হবে, প্রয়োজনে রাস্তায় শুয়ে পড়বো!",
+                "বাবুল ভাইকে চাকরি দাও, নয়তো ট্রাফিক বন্ধ থাকবো!",
+                "রেজাল্ট যদি না পাল্টাও, আমরাও বদলে যাবো!",
+                "চাকরি চাই না, চাই চাই! - ব্যানারে ভুল বানান!",
+                "টিউশন ফি কমান, নয়তো ক্যাম্পাসে আগুন ধরাবো!",
+                "ভর্তি সিট বাড়াও, নয়তো ভিসি সাহেবকে ধরবো!",
+                "বেতন বাড়াও, নয়তো অফিসে বসে খিচুড়ি রান্না করবো!",
+                "ঘুষ দেবেন না, ঘুষ খাবেন না - আমাদের লোক ভাড়া দিন!"
+            ];
+
+            const sloganDisplay = document.getElementById("sloganDisplay");
+            const generateBtn = document.getElementById("generateSlogan");
+
+            generateBtn.addEventListener("click", () => {
+                const randomIndex = Math.floor(Math.random() * slogans.length);
+                sloganDisplay.textContent = `"${slogans[randomIndex]}"`;
+
+                // Animation effect
+                sloganDisplay.style.transform = "scale(1.05)";
+                setTimeout(() => {
+                    sloganDisplay.style.transform = "scale(1)";
+                }, 300);
+            });
+
+            // Form submission
+            const bookingForm = document.getElementById("protestBookingForm");
+
+            bookingForm.addEventListener("submit", e => {
+                e.preventDefault();
+
+                // Show a fun alert
+                alert(
+                    "ধন্যবাদ! আপনার বুকিং রিকুয়েস্ট গ্রহণ করা হয়েছে। আমাদের একজন আন্দোলন বিশেষজ্ঞ শীঘ্রই আপনার সাথে যোগাযোগ করবেন। আন্দোলন জিন্দাবাদ!"
+                );
+
+                // Reset the form
+                bookingForm.reset();
+            });
+
+            // Set minimum date for booking to tomorrow
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+
+            const minDate = tomorrow.toISOString().split("T")[0];
+            document.getElementById("date").min = minDate;
+        </script>
+    </body>
+</html>
